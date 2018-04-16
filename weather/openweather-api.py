@@ -1,4 +1,5 @@
 import requests
+import json
 
 key = ''   # api key
 fullurl = 'http://api.openweathermap.org/data/2.5/weather?id=' + _id + '&APPID=' + key   # full url
@@ -9,4 +10,5 @@ r = requests.get(fullurl)
 
 json_data = r.json()
 
-print(json_data['main']['temp_max'])
+maximum_temperature = json_data['main']['temp_max']
+print(json.dumps(json_data, indent=4, sort_keys=True))
